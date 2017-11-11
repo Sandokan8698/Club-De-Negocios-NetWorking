@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data_Layer;
+﻿using Data_Layer;
+using Data_Layer.Abstract;
 using Data_Layer.Implementations;
-using Service_Layer.Implementation;
 
 namespace WPFPresentation.Models.Provider
 {
@@ -20,9 +15,8 @@ namespace WPFPresentation.Models.Provider
         private SubPedidoEntryProvider _subPedidoEntryProvider;
         private TrabajadorProvider _trabajadorProvider;
 
-        private FacadeService _facadeService;
-
-        public FacadeProvider(FacadeService facadeService)
+       
+        public FacadeProvider()
         {
             //_clienteProvider = new ClienteProvider(facadeService);
             //_pedidoProvider = new PedidoProvider(facadeService);
@@ -40,7 +34,7 @@ namespace WPFPresentation.Models.Provider
 
         public ClienteProvider ClienteProvider()
         {
-            return new ClienteProvider(new UnitOfWork(new ClubNegociosNetworkingContext()));
+            return new ClienteProvider(new Data_Layer.Implementations.UnitOfWork(new ClubNegociosNetworkingContext()));
         }
 
         public PedidoProvider PedidoProvider()

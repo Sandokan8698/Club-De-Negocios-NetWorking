@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
 using Data_Layer;
 using Data_Layer.Implementations;
 using Data_Layer.Implementations.Repositories;
 using Domain_Layer.Entities;
 using Faker;
 using Faker.Generator;
-using Service_Layer.Implementation;
-using TestWhatIDontKno.Filters;
-using WPFPresentation.Models;
-
 namespace TestWhatIDontKno
 {
     class Program

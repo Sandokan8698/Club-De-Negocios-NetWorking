@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data_Layer;
+﻿using Data_Layer;
 using Data_Layer.Abstract;
 using Data_Layer.Implementations;
-using Service_Layer.Implementation;
 using WPFPresentation.Models.Provider;
 
 namespace WPFPresentation.Utils
@@ -16,8 +10,7 @@ namespace WPFPresentation.Utils
         #region Data
         static readonly DependencyResolver instance = new DependencyResolver();
         private IUnitOfWork unitOfWork;
-        private FacadeService facadeService;
-       
+              
 
         #endregion
 
@@ -32,8 +25,7 @@ namespace WPFPresentation.Utils
         private DependencyResolver()
         {
             unitOfWork = new UnitOfWork(new ClubNegociosNetworkingContext());
-            facadeService = new FacadeService(unitOfWork);
-            FacadeProvider = new FacadeProvider(facadeService);
+            FacadeProvider = new FacadeProvider();
         }
         #endregion
 

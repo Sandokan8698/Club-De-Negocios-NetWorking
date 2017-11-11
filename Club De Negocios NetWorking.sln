@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation Layer", "1. Presentation Layer", "{593A8BA1-D82B-4D06-85C2-3932FB5DCC7E}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Layer", "Data Layer\Data Layer.csproj", "{826C6BA6-B2BD-4D7D-A7A3-AAE3C1550801}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain Layer", "Domain Layer\Domain Layer.csproj", "{7DC752E4-2234-40E8-A43E-EC47F32828F3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service Layer", "Service Layer\Service Layer.csproj", "{E8955C01-9C08-40AE-ABC5-31798EE13DF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWhatIDontKno", "TestWhatIDontKno\TestWhatIDontKno.csproj", "{C73B7A60-C98D-4412-8C68-C134C884BCD0}"
 EndProject
@@ -33,10 +31,6 @@ Global
 		{7DC752E4-2234-40E8-A43E-EC47F32828F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC752E4-2234-40E8-A43E-EC47F32828F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC752E4-2234-40E8-A43E-EC47F32828F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8955C01-9C08-40AE-ABC5-31798EE13DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8955C01-9C08-40AE-ABC5-31798EE13DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8955C01-9C08-40AE-ABC5-31798EE13DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8955C01-9C08-40AE-ABC5-31798EE13DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C73B7A60-C98D-4412-8C68-C134C884BCD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C73B7A60-C98D-4412-8C68-C134C884BCD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C73B7A60-C98D-4412-8C68-C134C884BCD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,5 +42,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D077FA8F-854B-4E25-A1F3-46B19C3A49F3} = {593A8BA1-D82B-4D06-85C2-3932FB5DCC7E}
 		{C73B7A60-C98D-4412-8C68-C134C884BCD0} = {593A8BA1-D82B-4D06-85C2-3932FB5DCC7E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7946597E-A0FD-4DA6-B878-A2642CC59A10}
 	EndGlobalSection
 EndGlobal

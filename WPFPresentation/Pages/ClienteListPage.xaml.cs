@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Data_Layer;
-using Data_Layer.Abstract;
-using Data_Layer.Implementations;
-using Service_Layer.Implementation;
+﻿using System.Windows.Controls;
 using WPFPresentation.Models;
-using WPFPresentation.Models.Provider;
 using WPFPresentation.Utils;
 using WPFPresentation.ViewModels;
 

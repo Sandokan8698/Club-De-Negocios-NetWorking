@@ -254,7 +254,6 @@
     <Compile Include="Utils\MultiDictionary.cs" />
     <Compile Include="Utils\NotifyTaskCompletion.cs" />
     <Compile Include="ViewModels\BaseVentaViewModel.cs" />
-    <Compile Include="ViewModels\Class1.cs" />
     <Compile Include="ViewModels\ClientesViewModel.cs" />
     <Compile Include="ViewModels\ClienteVentasViewModel.cs" />
     <Compile Include="Pages\Content\ViewModels\ClienteNewControlViewModel.cs" />
@@ -437,10 +436,6 @@
     <ProjectReference Include="..\Domain Layer\Domain Layer.csproj">
       <Project>{7dc752e4-2234-40e8-a43e-ec47f32828f3}</Project>
       <Name>Domain Layer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service Layer\Service Layer.csproj">
-      <Project>{e8955c01-9c08-40ae-abc5-31798ee13df8}</Project>
-      <Name>Service Layer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

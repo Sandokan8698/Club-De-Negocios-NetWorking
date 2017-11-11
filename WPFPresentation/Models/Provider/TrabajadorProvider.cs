@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Data_Layer.Implementations;
 using Domain_Layer.Entities;
-using Service_Layer.Implementation;
+
 
 namespace WPFPresentation.Models.Provider
 {

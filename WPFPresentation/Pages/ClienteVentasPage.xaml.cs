@@ -1,11 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using Data_Layer;
-using Data_Layer.Abstract;
-using Data_Layer.Implementations;
-using Service_Layer.Implementation;
-using WPFPresentation.Models;
-using WPFPresentation.Models.Provider;
+﻿using System.Windows.Controls;
 using WPFPresentation.Utils;
 using WPFPresentation.ViewModels;
 
