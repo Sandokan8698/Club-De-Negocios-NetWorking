@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="card">
+    <header class="card-heading">
+        <h2 class="card-title">INVOICE No. 008902</h2>
+        <small class="today">10/07/2017</small>
+        <div class="card-search">
+            <div id="productsTable_wrapper" class="form-group label-floating is-empty">
+                <i class="zmdi zmdi-search search-icon-left"></i>
+                <input type="text" class="form-control filter-input" placeholder="Filter Products..." autocomplete="off">
+                <a href="javascript:void(0)" class="close-search" data-card-search="close" data-toggle="tooltip" data-placement="top" title="Close"><i class="zmdi zmdi-close"></i></a>
+            </div>
+        </div>
+        <ul class="card-actions icons right-top">
+            <li id="deleteItems" style="display: none;">
+                <span class="label label-info pull-left m-t-5 m-r-10 text-white"></span>
+                <a href="javascript:void(0)" id="confirmDelete" data-toggle="tooltip" data-placement="top" data-original-title="Delete Product(s)">
+                    <i class="zmdi zmdi-delete"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" data-card-search="open" data-toggle="tooltip" data-placement="top" data-original-title="Buscar usuario">
+                    <i class="zmdi zmdi-account"></i>
+                </a>
+            </li>
+            <li class="dropdown" data-toggle="tooltip" data-placement="top" data-original-title="Show Entries">
+                <a href="javascript:void(0)" data-toggle="dropdown">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <div id="dataTablesLength">
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" data-original-title="Export All">
+                    <i class="zmdi zmdi-inbox"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <div class="card-body p-50 p-t-10 invoice">
+        <h1><img src="/assets/img/logo/logo-icon_v2@2x.png" alt="logo" class="logo-img"> MaterialWrap</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>CLIENTE</h3>
+                <address class="address">
+                    MaterialWrap<br>
+                    1600 Amphitheatre Parkway<br>
+                    Mountain View, CA 10486<br>
+                    Phone: +1 888-555-0000<br>
+                </address>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Item#</th>
+                    <th>Proveedor</th>
+                    <th>P.U</th>
+                    <th>Abono</th>
+                    <th>Saldo</th> 
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        UX Design
+                        <p>Wireframes of screens, storyboards and sitemaps.</p>
+                    </td>
+                    <td>$4,200</td>
+                    <td>$2,100</td>
+                    <td>$4,200</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        Front-end Development
+                        <p>CSS, HTML, and JavaScript files</p>
+                    </td>
+                    <td>1</td>
+                    <td>$3,500</td>
+                    <td>$3,500</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        UX Research
+                        <p>User personas, A/B test results, Investigative user studies &amp; interviews.</p>
+                    </td>
+                    <td>1</td>
+                    <td>$2,000</td>
+                    <td>$2,000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="invoice-total" style="margin-right: 31px">
+            <div class="row">
+                <div class="col-xs-4">
+                    
+                </div>
+                <div class="col-xs-7">
+                    <span class="text-right text-gray" style="display: block;font-size: .875em;line-height: 1.6em;">SUB TOTAL</span>
+                    <span class="text-right text-gray" style="display: block;font-size: .875em;line-height: 1.6em;">10% DISCOUNT</span>
+                    <span class="text-right m-t-10" style="display: block;font-size: .875em;line-height: 1.6em;"><strong>TOTAL DUE</strong></span>
+                </div>
+                <div class="col-xs-1">
+                    <span style="display: block;font-size: .875em;line-height: 1.6em;">$9,700</span>
+                    <span style="display: block;font-size: .875em;line-height: 1.6em;">$970</span>
+                    <span class="total" style="font-size: 1.375em;color: #28bebd;font-weight: 600; margin-top: 10px; display: block">$8,730</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-round pull-right m-t-20 m-b-30">Guardar Orden</button>
+        </div>
+        <br/>
+        <br/>
+                
+
+        <footer class="invoice-footer">
+            <div class="row">
+                <div class="col-xs-3">
+                   
+                   
+                </div>
+                <div class="col-xs-9">
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
