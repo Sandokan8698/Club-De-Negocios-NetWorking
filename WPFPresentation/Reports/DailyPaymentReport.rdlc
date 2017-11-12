@@ -228,6 +228,7 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -264,6 +265,114 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Total:</Value>
+                <Style>
+                  <FontFamily>Arial Narrow</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox13</rd:DefaultName>
+        <Top>1.24094in</Top>
+        <Left>0.32418in</Left>
+        <Height>0.25in</Height>
+        <Width>0.57292in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Abono1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Deuda.Value, "DailyPaymentsDataSet")</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$'0.00;('$'0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Abono1</rd:DefaultName>
+        <Top>1.24094in</Top>
+        <Left>5.55564in</Left>
+        <Height>0.25in</Height>
+        <Width>0.8825in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
+      <Textbox Name="Deuda1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Abono.Value, "DailyPaymentsDataSet")</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$'0.00;('$'0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Deuda1</rd:DefaultName>
+        <Top>1.24094in</Top>
+        <Left>6.84983in</Left>
+        <Height>0.25in</Height>
+        <Width>0.92735in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>4.64854in</Height>
     <Style />
@@ -271,7 +380,7 @@
   <Width>8.55907in</Width>
   <Page>
     <PageHeader>
-      <Height>2.93751in</Height>
+      <Height>3.13543in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <ReportItems>
         <Textbox Name="Textbox1">
@@ -426,10 +535,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ClienteNombre</rd:DefaultName>
-          <Top>2.0057in</Top>
+          <Top>2.2557in</Top>
           <Left>1.19918in</Left>
           <Height>0.25in</Height>
-          <Width>3.61458in</Width>
+          <Width>3.21875in</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -456,7 +565,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ClienteDireccion</rd:DefaultName>
-          <Top>2.22917in</Top>
+          <Top>2.47917in</Top>
           <Left>1.19918in</Left>
           <Height>0.25in</Height>
           <Width>3.97917in</Width>
@@ -486,7 +595,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ClienteTelefono</rd:DefaultName>
-          <Top>2.52084in</Top>
+          <Top>2.77084in</Top>
           <Left>1.19918in</Left>
           <Height>0.25in</Height>
           <Width>1in</Width>
@@ -588,7 +697,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>1.97917in</Top>
+          <Top>2.22917in</Top>
           <Left>0.32418in</Left>
           <Height>0.25in</Height>
           <Width>0.625in</Width>
@@ -622,7 +731,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>2.22917in</Top>
+          <Top>2.47917in</Top>
           <Left>0.32418in</Left>
           <Height>0.25in</Height>
           <Width>0.80555in</Width>
@@ -656,7 +765,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>2.52084in</Top>
+          <Top>2.77084in</Top>
           <Left>0.32418in</Left>
           <Height>0.25in</Height>
           <Width>0.80555in</Width>
@@ -695,6 +804,74 @@
           <Height>0.25in</Height>
           <Width>0.5in</Width>
           <ZIndex>12</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox19">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Cedula:</Value>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox13</rd:DefaultName>
+          <Top>1.95015in</Top>
+          <Left>0.32418in</Left>
+          <Height>0.25in</Height>
+          <Width>0.625in</Width>
+          <ZIndex>13</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ClienteNombre2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ClienteCedula.Value, "VentaDataSet")</Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value xml:space="preserve">  </Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ClienteNombre</rd:DefaultName>
+          <Top>1.97668in</Top>
+          <Left>1.19918in</Left>
+          <Height>0.25in</Height>
+          <Width>3.21875in</Width>
+          <ZIndex>14</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -872,13 +1049,6 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="WPFPresentationReportsModels">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>af1ece4d-60e9-4e6d-b769-4ed67be422fd</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="WPFPresentationReportsModels1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
@@ -886,14 +1056,51 @@
       </ConnectionProperties>
       <rd:DataSourceID>1fa02651-655b-4aab-8fc0-02b9348fd199</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="WPFPresentationReportsModels">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ddefbaf5-465f-4925-a7eb-7fbd65064ae5</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="DailyPaymentsDataSet">
+      <Query>
+        <DataSourceName>WPFPresentationReportsModels1</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Abono">
+          <DataField>Abono</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Deuda">
+          <DataField>Deuda</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Identificador">
+          <DataField>Identificador</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>WPFPresentation.Reports.Models</rd:DataSetName>
+        <rd:TableName>VentaDataSetModel</rd:TableName>
+        <rd:ObjectDataSourceSelectMethod>DailyPayments</rd:ObjectDataSourceSelectMethod>
+        <rd:ObjectDataSourceType>WPFPresentation.Reports.Models.VentaDataSetModel, CNNetworkig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
     <DataSet Name="VentaDataSet">
       <Query>
         <DataSourceName>WPFPresentationReportsModels</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="ClienteCedula">
+          <DataField>ClienteCedula</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ClienteDireccion">
           <DataField>ClienteDireccion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -922,32 +1129,6 @@
       <rd:DataSetInfo>
         <rd:DataSetName>WPFPresentation.Reports.Models</rd:DataSetName>
         <rd:TableName>VentaDataSetModel</rd:TableName>
-        <rd:ObjectDataSourceType>WPFPresentation.Reports.Models.VentaDataSetModel, WPFPresentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DailyPaymentsDataSet">
-      <Query>
-        <DataSourceName>WPFPresentationReportsModels1</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Abono">
-          <DataField>Abono</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Deuda">
-          <DataField>Deuda</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Identificador">
-          <DataField>Identificador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>WPFPresentation.Reports.Models</rd:DataSetName>
-        <rd:TableName>VentaDataSetModel</rd:TableName>
-        <rd:ObjectDataSourceSelectMethod>DailyPayments</rd:ObjectDataSourceSelectMethod>
         <rd:ObjectDataSourceType>WPFPresentation.Reports.Models.VentaDataSetModel, CNNetworkig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>

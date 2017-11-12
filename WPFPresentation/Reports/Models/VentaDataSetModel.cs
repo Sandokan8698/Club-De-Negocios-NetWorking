@@ -15,6 +15,8 @@ namespace WPFPresentation.Reports.Models
 
         public string Trabajador { get; set; }
 
+        public string ClienteCedula { get; set; }
+
         public String ClienteNombre { get; set; }
 
         public string ClienteDireccion { get; set; }

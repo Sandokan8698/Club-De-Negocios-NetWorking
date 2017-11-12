@@ -42,6 +42,7 @@ namespace WPFPresentation.Pages
                     {
                         Numero = ventaNumber.ToString(),
                         Fecha = venta.Fecha.ToShortDateString(),
+                        ClienteCedula = venta.Cliente.NumeroDocumento,
                         ClienteNombre = venta.Cliente.Nombre,
                         ClienteDireccion = venta.Cliente.Direccion,
                         ClienteTelefono = venta.Cliente.Telefono,
