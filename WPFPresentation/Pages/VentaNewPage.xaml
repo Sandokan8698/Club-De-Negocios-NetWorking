@@ -45,8 +45,10 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                             <TextBlock  Text="CLIENTE "  Style="{StaticResource Heading2}" Margin="0,0,8,0" />
-                            <TextBox x:Name="TextClienteId" Width="150" TextAlignment="Center"
-                                     Text="{Binding Venta.FindClientId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <toolkit:AutoCompleteBox  Width="200" ItemsSource="{Binding Clientes}"
+                                                       SelectedItem="{Binding Venta.Cliente, Mode=TwoWay}"
+                                                       ValueMemberPath="Nombre"
+                                                       ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}" x:Name="ClienteAutoComplete" />
                         </StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -56,8 +58,8 @@
                             <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Nombre}" />
                             <mui:BBCodeBlock Margin="6,0,0,0" BBCode="{Binding Venta.Cliente.Apellidos}" Grid.Column="1"/>
                         </Grid>
+                        <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.NumeroDocumento}" />
                         <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Direccion}" />
-                        <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Telefono}" />
                     </StackPanel>
                 </DockPanel>
 
@@ -92,11 +94,11 @@
                             <toolkit:AutoCompleteBox x:Name="AutoCompleteBoxEmpresa"  Width="150" ItemsSource="{Binding Proveedores}"
                                                   SelectedItem="{Binding Proveedor, Mode=TwoWay}"
                                                   ValueMemberPath="Nombre"
-                                                  ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}" />
+                                                  ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}"  />
                         </StackPanel>
                         <StackPanel Margin="6,0,0,0"  Orientation="Horizontal">
                             <TextBlock VerticalAlignment="Center" Text="Pedido.ID" FontWeight="Bold"  Margin="0,0,8,0" />
-                            <TextBox  Width="150" TextAlignment="Center" Text="{Binding Identificador, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <TextBox IsReadOnly="True"  Width="150" TextAlignment="Center" Text="{Binding Identificador, Mode=OneWay, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                     </DockPanel>
                     <DockPanel Grid.Column="2" Margin="6,0,0,0">

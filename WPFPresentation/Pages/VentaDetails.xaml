@@ -57,8 +57,8 @@
                             <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Nombre}" />
                             <mui:BBCodeBlock Margin="6,0,0,0" BBCode="{Binding Venta.Cliente.Apellidos}" Grid.Column="1"/>
                         </Grid>
+                        <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.NumeroDocumento}" />
                         <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Direccion}" />
-                        <mui:BBCodeBlock BBCode="{Binding Venta.Cliente.Telefono}" />
                     </StackPanel>
                 </DockPanel>
 
@@ -98,7 +98,7 @@
                         </StackPanel>
                         <StackPanel Margin="6,0,0,0"  Orientation="Horizontal">
                             <TextBlock VerticalAlignment="Center" Text="Pedido.ID" FontWeight="Bold"  Margin="0,0,8,0" />
-                            <TextBox Width="125" TextAlignment="Center" Text="{Binding Identificador, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <TextBox IsEnabled="False" Width="125" TextAlignment="Center" Text="{Binding Identificador, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                     </DockPanel>
                     <DockPanel Grid.Column="2" Margin="6,0,0,0">

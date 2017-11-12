@@ -13,12 +13,13 @@ namespace TestWhatIDontKno
         {
 
             //var ventaFactory = new Faker<Venta>();
-            //var ventas = ventaFactory.CreateMany(10000, v =>
+            //var ventas = ventaFactory.CreateMany(500, v =>
             //{
             //    v.ClienteId = new IntegerGenerator().Get(244, 443);
             //    v.Cliente = null;
             //    v.TrabajadorId = 3;
             //    v.Trabajador = null;
+
             //    v.Fecha = GetDate();
 
             //});
@@ -46,50 +47,50 @@ namespace TestWhatIDontKno
             //   uw.Complete();
             //}
 
-            var subPedidoFactory = new Faker<SubPedido>();
-            var subPedidos = subPedidoFactory.CreateMany(10000, sb =>
-            {
-                sb.PedidoId = new IntegerGenerator().Get(8, 10007);
-                sb.FechaCreacion = GetDate();
-                sb.Identificador = new IntegerGenerator().Get(150000, 990000000).ToString();
-                sb.PrecioProveedor = new IntegerGenerator().Get(20, 150);
-                sb.Pedido = null;
-                sb.SubPedidosEntrys.Add(new Faker<SubPedidoEntry>().Create(sbe =>
-                {
-                    sbe.Abono = new IntegerGenerator().Get(int.Parse(sb.PrecioProveedor.ToString()), 150);
-                    sbe.FechaCreacion = sb.FechaCreacion;
-                    sbe.SubPedido = null;
-                    sbe.TrabajadorId = 3;
-                    sbe.Trabajador = null;
-                }));
-
-            });
-
-            using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
-            {
-                // subPedidos.ToList().ForEach(sb => uw.SubPedidoRepository.Add(sb));
-                uw.SubPedidoRepository.AddRange(subPedidos);
-
-                uw.Complete();
-            }
-
-            //var otro = new Faker<Cliente>();
-            //var ventas = otro.CreateMany(200, v =>
+            //var subPedidoFactory = new Faker<SubPedido>();
+            //var subPedidos = subPedidoFactory.CreateMany(10000, sb =>
             //{
-            //    v.Nombre = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe 1, Bruno Matarazo 2.
-            //    v.NumeroDocumento = new IntegerGenerator().Get(100000000, 1000000000).ToString();
-            //    v.Apellidos = new NameGenerator().Get(10);
-            //    v.Telefono = new IntegerGenerator().Get(100000000, 1000000000).ToString();
-            //    v.FechaNacimiento = new DateTimeGenerator().Get();
+            //    sb.PedidoId = new IntegerGenerator().Get(8, 10007);
+            //    sb.FechaCreacion = GetDate();
+            //    sb.Identificador = new IntegerGenerator().Get(150000, 990000000).ToString();
+            //    sb.PrecioProveedor = new IntegerGenerator().Get(20, 150);
+            //    sb.Pedido = null;
+            //    sb.SubPedidosEntrys.Add(new Faker<SubPedidoEntry>().Create(sbe =>
+            //    {
+            //        sbe.Abono = new IntegerGenerator().Get(int.Parse(sb.PrecioProveedor.ToString()), 150);
+            //        sbe.FechaCreacion = sb.FechaCreacion;
+            //        sbe.SubPedido = null;
+            //        sbe.TrabajadorId = 3;
+            //        sbe.Trabajador = null;
+            //    }));
+
             //});
 
             //using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
             //{
             //    // subPedidos.ToList().ForEach(sb => uw.SubPedidoRepository.Add(sb));
-            //    uw.ClienteRepository.AddRange(ventas);
+            //    uw.SubPedidoRepository.AddRange(subPedidos);
 
             //    uw.Complete();
             //}
+
+            var otro = new Faker<Cliente>();
+            var ventas = otro.CreateMany(500, v =>
+            {
+                v.Nombre = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe 1, Bruno Matarazo 2.
+                v.NumeroDocumento = new IntegerGenerator().Get(100000000, 1000000000).ToString();
+                v.Apellidos = new NameGenerator().Get(10);
+                v.Telefono = new IntegerGenerator().Get(100000000, 1000000000).ToString();
+                v.FechaNacimiento = new DateTimeGenerator().Get();
+            });
+
+            using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
+            {
+                // subPedidos.ToList().ForEach(sb => uw.SubPedidoRepository.Add(sb));
+                uw.ClienteRepository.AddRange(ventas);
+
+                uw.Complete();
+            }
         }
 
         static DateTime GetDate()

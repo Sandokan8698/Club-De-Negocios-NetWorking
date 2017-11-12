@@ -17,7 +17,7 @@ namespace WPFPresentation.Models
 
         #region Property
 
-        private string _findClientId;
+        
         private ClienteModel _cliente;
 
         public int TrabajadorId
@@ -34,23 +34,10 @@ namespace WPFPresentation.Models
         public ClienteModel Cliente
         {
             get { return _cliente; }
-            set { if (_cliente != value) { _cliente = value; OnPropertyChanged("Cliente"); } }
+            set { if (_cliente != value) { _cliente = value; OnPropertyChanged("Cliente"); Notify("Cliente",value);} }
         }
 
-        public string FindClientId
-        {
-            get { return _findClientId; }
-            set
-            {
-                if (_findClientId != value)
-                {
-                    _findClientId = value;
-                    OnPropertyChanged("FindClientId");
-                    Notify("FindClientId", value);
-                }
-            }
-        }
-
+       
         private DateTime _fecha;
         public DateTime Fecha
         {
@@ -84,11 +71,6 @@ namespace WPFPresentation.Models
 
         #endregion
 
-
-        #region Helper
- 
-       
-
-        #endregion
+        
     }
 }

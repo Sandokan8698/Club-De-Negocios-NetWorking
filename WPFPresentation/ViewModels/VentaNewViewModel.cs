@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,17 +23,26 @@ namespace WPFPresentation.ViewModels
         public CommandModel AddNewVentaComman { get; private set; }
         public CommandModel SaveVentaComand { get; private set; }
 
+        private ObservableCollection<ClienteModel> _clientes;
+
+        public ObservableCollection<ClienteModel> Clientes  
+        {
+            get { return InMemoryHelper.Instance.Clientes; }      
+        }
+
         #endregion
 
         public VentaNewViewModel(FacadeProvider facadeProvider):base(facadeProvider)
         {
             AddNewVentaComman = new AddNewVentaCommand(this);
             SaveVentaComand = new SaveVentaCommand(this);
-
-            Messenger.Instance.Register(o => ActualizeProveedorList(o), ViewModelMessages.AddNewProveedor);
+            
+            //Esto es para cuando se seleccione al cliente en el autocomplete
+            //se ponga su inforacion acerca de si tiene deuda o no
+            Venta.Attach("Cliente", s => SetClientByDocument(s));
 
         }
-     
+
         #region Implementetion Command
 
         // implementation of the AddPedidoCommand
@@ -91,7 +101,7 @@ namespace WPFPresentation.ViewModels
             Venta = new VentaModel();
             Venta.Cliente = new ClienteModel();
             DeudaCliente = null;
-            Venta.Attach("FindClientId", s => SetClientByDocument(s));
+            Venta.Attach("Cliente", s => SetClientByDocument(s));
 
             var ventaPrintPage = await Task.Factory.StartNew(() =>
             {
@@ -129,7 +139,8 @@ namespace WPFPresentation.ViewModels
                     var dlg = new ModernDialog
                     {
                         Title = "Aviso",
-                        Content = "El proveedor ya fue agreagado"
+                        Content = "El proveedor ya fue agregado",
+                        MinHeight = 100
                     };
                     dlg.Buttons = new Button[] { dlg.OkButton };
                     dlg.ShowDialog();
@@ -151,8 +162,11 @@ namespace WPFPresentation.ViewModels
         public void AddNewVenta()
         {
             Venta = new VentaModel();
+            Venta.Cliente = new ClienteModel();
             DeudaCliente = null;
-            Venta.Attach("FindClientId", s => SetClientByDocument(s));
+            Venta.Attach("Cliente", s => SetClientByDocument(s));
+
+            InitPedidoToAddObjects();
         }
 
         public void ShowClienteDeudaDialog()
@@ -166,19 +180,54 @@ namespace WPFPresentation.ViewModels
            
         }
 
+       
         /// <summary>
-        /// Manejador del evento AddNewProveedor para cuando se agrege un nuevo proveedor se actualize la lista 
-        /// de proveedores sobres los que se realiza la busqueda en este viewmodel
+        /// Metodo que actualiza el cliente de esta venta lo hago asi
+        /// para que los modelos permanescan libre del acceso a datos no se si esta bien
         /// </summary>
-        /// <param name="o"></param>
-        private void ActualizeProveedorList(object o)
-        {
-            Proveedores.Add((ProveedorModel)o);
-        }
-
-        private void ActualizePedidoSupdedidoSupdedidoEntryeValueAbono(object o)
+        /// <param name="document"></param>
+        /// <returns></returns>
+        public async void SetClientByDocument(object cliente)
         {
             
+            if (Venta.Cliente != null)
+            {
+                Venta.ClienteId = Venta.Cliente.ClienteId;
+                SetClientDeuda(Venta.ClienteId);
+            }
+            else
+            {
+                DeudaCliente = null;
+            }
+
+            IsLoading = false;
+
+        }
+
+        public void SetClientDeuda(int id)
+        {
+            var cliente = FacadeProvider.ClienteProvider().Get(id);
+
+            if (cliente != null)
+            {
+                var venta = FacadeProvider.VentaProvider().GetVentaWithDeuda(id);
+
+                if (venta != null)
+                {
+                    DeudaCliente = new DeudaModel { Deuda = venta.Deuda, VentaId = venta.VentaId };
+                }
+                else
+                {
+                    DeudaCliente = null;
+                }
+            }
+            else
+            {
+                //para que se borre la deuda del cliente que ya se habia buscado
+                DeudaCliente = null;
+            }
+
+
         }
         #endregion
 

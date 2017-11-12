@@ -25,6 +25,7 @@ namespace WPFPresentation.Pages
 
             InitializeComponent();
             _subPedidoEditViewModel = new SubPedidoEditViewModel(DependencyResolver.Instance.FacadeProvider, venta);
+            _subPedidoEditViewModel.InitializeViewContent();
             DataContext = _subPedidoEditViewModel;
 
             CommandModel addSubPedidoComman = _subPedidoEditViewModel.AddSubPedidoComman;
@@ -62,12 +63,12 @@ namespace WPFPresentation.Pages
 
         private void SubPedidoDialogEditPage_OnLoaded(object sender, RoutedEventArgs e)
         {
-            TextBoxPedidoId.Focus();
+            TextBoxPrecio.Focus();
         }
 
         private void ButtonAddSubPedio_OnClick(object sender, RoutedEventArgs e)
         {
-            TextBoxPedidoId.Focus();
+            TextBoxPrecio.Focus();
         }
 
        

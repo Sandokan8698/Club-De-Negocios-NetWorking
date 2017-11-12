@@ -40,8 +40,7 @@
                                               SelectedItem="{Binding Filter.Cliente, Mode=TwoWay}"
                                               ValueMemberPath="Nombre"
                                               ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}" x:Name="ClienteAutoComplete" />
-                    <TextBox Width="150" Visibility="Collapsed" x:Name="FakerAutoComplete" Text="{Binding Filter.Cliente.Nombre, Mode=TwoWay}"></TextBox>
-                </StackPanel>
+                    </StackPanel>
 
                 <StackPanel>
                     <Label Content="Venta"/>

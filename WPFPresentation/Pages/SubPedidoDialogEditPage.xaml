@@ -41,22 +41,22 @@
                         </StackPanel>
                         <StackPanel Margin="6,0,0,0"  Orientation="Horizontal">
                             <TextBlock VerticalAlignment="Center" Text="Pedido.ID" FontWeight="Bold"  Margin="0,0,8,0" />
-                            <TextBox x:Name="TextBoxPedidoId" TabIndex="1" Width="140" TextAlignment="Center" Text="{Binding Identificador, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <TextBox IsReadOnly="True"  TabIndex="1" Width="140" TextAlignment="Center" Text="{Binding Identificador, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                     </DockPanel>
                     <DockPanel Grid.Column="1" Margin="6,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock VerticalAlignment="Center"  Text="Precio.U" FontWeight="Bold"  Margin="0,0,8,0" />
-                            <TextBox  TabIndex="2" GotFocus="UIElement_OnGotFocus" Width="80" Height="25" TextAlignment="Center" Text="{Binding PrecioProveedor, Mode=TwoWay, ValidatesOnDataErrors=True, StringFormat='$#,##0.00;$(#,##0.00)'}"/>
+                            <TextBox x:Name="TextBoxPrecio" TabIndex="1" GotFocus="UIElement_OnGotFocus" Width="80" Height="25" TextAlignment="Center" Text="{Binding PrecioProveedor, Mode=TwoWay, ValidatesOnDataErrors=True, StringFormat='$#,##0.00;$(#,##0.00)'}"/>
                         </StackPanel>
                     </DockPanel>
                     <DockPanel Grid.Column="2" Margin="6,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock VerticalAlignment="Center"  Text="Abono" FontWeight="Bold" Margin="0,0,8,0" />
-                            <TextBox TabIndex="3" GotFocus="UIElement_OnGotFocus" Width="80" Height="25" TextAlignment="Center" Text="{Binding Abono, Mode=TwoWay, ValidatesOnDataErrors=True, StringFormat='$#,##0.00;$(#,##0.00)'}" />
+                            <TextBox TabIndex="2" GotFocus="UIElement_OnGotFocus" Width="80" Height="25" TextAlignment="Center" Text="{Binding Abono, Mode=TwoWay, ValidatesOnDataErrors=True, StringFormat='$#,##0.00;$(#,##0.00)'}" />
                         </StackPanel>
                     </DockPanel>
-                    <Button TabIndex="4" Margin="6,0,0,0" x:Name="ButtonAddSubPedio" Grid.Column="3" Height="26" VerticalAlignment="Top" Click="ButtonAddSubPedio_OnClick">Agregar</Button>
+                    <Button TabIndex="3" Margin="6,0,0,0" x:Name="ButtonAddSubPedio" Grid.Column="3" Height="26" VerticalAlignment="Top" Click="ButtonAddSubPedio_OnClick">Agregar</Button>
                 </Grid>
 
             </Border>

@@ -30,25 +30,19 @@ namespace WPFPresentation.ViewModels
         /// </summary>
         public ObservableCollection<ClienteModel> Clientes
         {
-            get { return _clientes; }
-            set
-            {
-                if (_clientes != value) _clientes = value; OnPropertyChanged("Clientes");
-            }
+            get { return InMemoryHelper.Instance.Clientes; }
+            
         }
 
-        private ObservableCollection<ProveedorModel> _proveedores;
+      
         /// <summary>
         /// Lista de Proveedores sobre los que se ejecuta la busqueda en para agregar
         /// un nuevo pedido
         /// </summary>
         public ObservableCollection<ProveedorModel> Proveedores
         {
-            get { return _proveedores; }
-            set
-            {
-                if (_proveedores != value) _proveedores = value; OnPropertyChanged("Proveedores");
-            }
+            get { return InMemoryHelper.Instance.Proveedores; }
+            
         }
 
         /// <summary>
@@ -83,23 +77,13 @@ namespace WPFPresentation.ViewModels
             //del FilterModel para inicializar el filterModel de esta newControlViewModel
             //Nada se inicializa el Filter de esta pagina segun le convenga al ControlViewModel que lo esta enviando
             Messenger.Instance.Register(InitializeFilter, ViewModelMessages.InitializerFilterValue);
-
-            Messenger.Instance.Register(o => ActualizeProveedorList(o), ViewModelMessages.AddNewProveedor);
-
-            Messenger.Instance.Register(o => ActualizeClienteList(o), ViewModelMessages.AddNewCliente);
-
+            
         }
+        
 
         #endregion
 
         #region Helpers
-
-        public  override void InitializeViewContent()
-        {
-          
-            Clientes = FacadeProvider.ClienteProvider().GetAll();
-            Proveedores = FacadeProvider.ProveedorProvider().GetAll();
-        }
 
         public override void UnloadViewContent()
         {
@@ -125,8 +109,7 @@ namespace WPFPresentation.ViewModels
             Filter.Hasta = DateTime.Now;
         }
         #endregion
-
-
+        
         #region Implementetion Command
 
         // implementation of the AddPedidoCommand
@@ -175,26 +158,7 @@ namespace WPFPresentation.ViewModels
             }
         }
 
-        /// <summary>
-        /// Manejador del mensage AddNewProveedor para cuando se agrege un nuevo proveedor se actualize la lista 
-        /// de proveedores sobres los que se realiza la busqueda en este viewmodel
-        /// </summary>
-        /// <param name="o"></param>
-        private void ActualizeProveedorList(object o)
-        {
-            
-            Proveedores.Add((ProveedorModel)o);
-        }
-
-        /// <summary>
-        /// Manejador del mensage AddNewCliente para cuando se agrege un nuevo cliente se actualize la lista 
-        /// de clientes sobres los que se realiza la busqueda en este viewmodel
-        /// </summary>
-        /// <param name="o"></param>
-        private void ActualizeClienteList(object o)
-        {
-            Clientes.Add((ClienteModel)o);
-        }
+        
         #endregion
     }
 }

@@ -73,7 +73,12 @@ namespace WPFPresentation.ViewModels
             Pedido = venta.SelectedChildren;
          
             AddSubPedidoComman = new AddSubPedidoCommand(this);
-                
+            
+        }
+
+        public override void InitializeViewContent()
+        {
+            Identificador = UniqueKeyGenerator.GetUniqueKey();
         }
 
         #endregion
@@ -111,7 +116,8 @@ namespace WPFPresentation.ViewModels
       
             PrecioProveedor = 0;
             Abono = 0;
-            Identificador = "";
+            Identificador = UniqueKeyGenerator.GetUniqueKey();
+            
         }
 
         public void RemoveSubPedido(SubPedidoModel subPedido)

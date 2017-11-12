@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using FirstFloor.ModernUI.Windows.Controls;
 using WPFPresentation.Models;
 using WPFPresentation.Models.Provider;
 using WPFPresentation.Utils;
@@ -24,7 +17,7 @@ namespace WPFPresentation.ViewModels
         public ProveedorModel Proveedor
         {
             get { return _proveedor; }
-            set { if (_proveedor != value) _proveedor = value; OnPropertyChanged("Proveedor"); }
+            set { if (_proveedor != value) _proveedor = value; OnPropertyChanged("Proveedor"); SetIdentificadorNumber(value);}
         }
 
         private decimal _precioProveedor;
@@ -65,19 +58,15 @@ namespace WPFPresentation.ViewModels
             set { if (_venta != value) { _venta = value; OnPropertyChanged("Venta"); } }
         }
 
-        private ObservableCollection<ProveedorModel> _proveedores;
-
+      
         /// <summary>
         /// Lista de Proveedores sobre los que se ejecuta la busqueda en para agregar
         /// un nuevo pedido
         /// </summary>
         public ObservableCollection<ProveedorModel> Proveedores
         {
-            get { return _proveedores; }
-            set
-            {
-                if (_proveedores != value) _proveedores = value; OnPropertyChanged("Proveedores");
-            }
+            get { return InMemoryHelper.Instance.Proveedores; }
+            
         }
 
         /// <summary>
@@ -100,7 +89,6 @@ namespace WPFPresentation.ViewModels
 
         #endregion
 
-
         #region Ctor
 
         public BaseVentaViewModel(FacadeProvider facadeProvider) : base(facadeProvider)
@@ -108,28 +96,9 @@ namespace WPFPresentation.ViewModels
             Venta = new VentaModel();
             AddPedidoComand = new AddPedidoCommand(this);
             DeletePedidoComman = new DeletePedidoCommand(this);
-
-            //Atamos al cambio de propiedad de venta FinClientId un helper par
-            //Cambiar el cliente por la id que se pase
-            Venta.Attach("FindClientId", s => SetClientByDocument(s));
-
-
+            
         }
-
-        public async override void InitializeViewContent()
-        {
-            IsLoading = true;
-
-            Proveedores = await Task.Run(() =>
-            {
-                return FacadeProvider.ProveedorProvider().GetAll();
-            });
-
-            IsLoading = false;
-
-
-        }
-
+        
         #endregion
 
         #region Implementetion Command
@@ -189,19 +158,14 @@ namespace WPFPresentation.ViewModels
         }
 
         #endregion
-
-
+        
         #region Helpers
 
         public virtual void AddPedido()
         {
-
-
             SubPedidoEntryToAdd = new SubPedidoEntryModel { Abono = Abono, };
             SubPedidoToAdd = new SubPedidoModel { Identificador = Identificador, PrecioProveedor = PrecioProveedor };
             PedidoToAdd = new PedidoModel { VentaId = Venta.VentaId, ProveedorId = Proveedor.ProveedorId, Proveedor = Proveedor, ItemNumero = Venta.Pedidos.Count + 1 };
-
-
         }
 
         protected bool ProveedorExist(int proveedorId)
@@ -215,68 +179,15 @@ namespace WPFPresentation.ViewModels
             return false;
         }
 
-        protected void InitPedidoToAddObjects()
+        protected virtual void InitPedidoToAddObjects()
         {
             PrecioProveedor = 0;
             Abono = 0;
-            Identificador = "";
+            //Identificador = "";
             Proveedor = new ProveedorModel();
         }
 
         public abstract void RemovePedido(object element);
-
-        /// <summary>
-        /// Metodo que actualiza el cliente de esta venta lo hago asi
-        /// para que los modelos permanescan libre del acceso a datos no se si esta bien
-        /// </summary>
-        /// <param name="document"></param>
-        /// <returns></returns>
-        public async void SetClientByDocument(object document)
-        {
-            IsLoading = true;
-
-            await Task.Run(() => Venta.Cliente = FacadeProvider.ClienteProvider().GetClienteByDocumento(document.ToString()));
-
-
-            if (Venta.Cliente != null)
-            {
-                Venta.ClienteId = Venta.Cliente.ClienteId;
-                SetClientDeuda(Venta.ClienteId);
-            }
-            else
-            {
-                DeudaCliente = null;
-            }
-
-            IsLoading = false;
-
-        }
-
-        public void SetClientDeuda(int id)
-        {
-            var cliente = FacadeProvider.ClienteProvider().Get(id);
-
-            if (cliente != null)
-            {
-                var venta = FacadeProvider.VentaProvider().GetVentaWithDeuda(id);
-
-                if (venta != null)
-                {
-                    DeudaCliente = new DeudaModel { Deuda = venta.Deuda, VentaId = venta.VentaId };
-                }
-                else
-                {
-                    DeudaCliente = null;
-                }
-            }
-            else
-            {
-                //para que se borre la deuda del cliente que ya se habia buscado
-                DeudaCliente = null;
-            }
-
-
-        }
 
         /// <summary>
         /// Actualiza los numero de la propiedad ItemNumero
@@ -294,6 +205,21 @@ namespace WPFPresentation.ViewModels
             return pedidos.Count + 1;
         }
 
+        private void SetIdentificadorNumber(ProveedorModel proveedor)
+        {
+            if (proveedor != null)
+            {
+                if (proveedor.ProveedorId > 0)
+                {
+                    Identificador = UniqueKeyGenerator.GetUniqueKey();
+                }
+                else
+                {
+                    Identificador = "";
+                }
+            }
+            
+        }
 
         #endregion
 

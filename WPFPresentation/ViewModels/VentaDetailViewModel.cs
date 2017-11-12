@@ -77,7 +77,8 @@ namespace WPFPresentation.ViewModels
                     var dlg = new ModernDialog
                     {
                         Title = "Aviso",
-                        Content = "El proveedor ya fue agreagado"
+                        Content = "El proveedor ya fue agregado",
+                        MinHeight = 100
                     };
                     dlg.Buttons = new Button[] { dlg.OkButton };
                     dlg.ShowDialog();

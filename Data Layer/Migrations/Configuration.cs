@@ -33,14 +33,14 @@ namespace Data_Layer.Migrations
             //    );
             //
 
-           
-            //context.ProveedorDbSet.AddOrUpdate(
-            //        new Proveedor { Nombre = "Nozztra"},
-            //        new Proveedor { Nombre = "Seductora"},
-            //        new Proveedor { Nombre = "JSN"},
-            //        new Proveedor { Nombre = "Mistika"},
-            //        new Proveedor { Nombre = "Hechizada"}
-            //    );
+
+            context.ProveedorDbSet.AddOrUpdate(
+                    new Proveedor {ProveedorId = 1, Nombre = "Nozztra" },
+                    new Proveedor { ProveedorId = 2, Nombre = "Seductora" },
+                    new Proveedor { ProveedorId = 3, Nombre = "JSN" },
+                    new Proveedor {ProveedorId = 4,Nombre = "Mistika" },
+                    new Proveedor { ProveedorId = 5, Nombre = "Hechizada" }
+                );
         }
     }
 }

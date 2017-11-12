@@ -244,6 +244,7 @@
     <Compile Include="Reports\Models\DailyPaymentDataSetModel.cs" />
     <Compile Include="Reports\Models\PedidoDataSetModel.cs" />
     <Compile Include="Reports\Models\VentaDataSetModel.cs" />
+    <Compile Include="Utils\InMemoryHelper.cs" />
     <Compile Include="Utils\NavigatorHelper.cs" />
     <Compile Include="Utils\Authenticator.cs" />
     <Compile Include="Utils\DependencyResolver.cs" />
@@ -253,6 +254,7 @@
     <Compile Include="Utils\Messenger.cs" />
     <Compile Include="Utils\MultiDictionary.cs" />
     <Compile Include="Utils\NotifyTaskCompletion.cs" />
+    <Compile Include="Utils\UniqueKeyGenerator.cs" />
     <Compile Include="ViewModels\BaseVentaViewModel.cs" />
     <Compile Include="ViewModels\ClientesViewModel.cs" />
     <Compile Include="ViewModels\ClienteVentasViewModel.cs" />
