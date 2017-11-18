@@ -31,6 +31,7 @@ namespace WPFPresentation.Utils
             _facadeProvider = DependencyResolver.Instance.FacadeProvider;
 
             Messenger.Instance.Register(o => ActualizeProveedorList(o), ViewModelMessages.AddNewProveedor);
+            Messenger.Instance.Register(o => ActualizeClienteList(o), ViewModelMessages.AddNewCliente);
         }
 
         #endregion
@@ -98,6 +99,10 @@ namespace WPFPresentation.Utils
             Proveedores.Add((ProveedorModel)o);
         }
 
+        private void ActualizeClienteList(object o)
+        {
+            Clientes.Add((ClienteModel)o);
+        }
         #endregion
     }
 }
