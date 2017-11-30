@@ -15,9 +15,9 @@ namespace TestWhatIDontKno
             //var ventaFactory = new Faker<Venta>();
             //var ventas = ventaFactory.CreateMany(500, v =>
             //{
-            //    v.ClienteId = new IntegerGenerator().Get(244, 443);
+            //    v.ClienteId = new IntegerGenerator().Get(1, 502);
             //    v.Cliente = null;
-            //    v.TrabajadorId = 3;
+            //    v.TrabajadorId = 2;
             //    v.Trabajador = null;
 
             //    v.Fecha = GetDate();
@@ -30,22 +30,22 @@ namespace TestWhatIDontKno
             //    uw.Complete();
             //}
 
-            //var pedidoFactory = new Faker<Pedido>();
-            //var pedidos = pedidoFactory.CreateMany(10000, p =>
-            //{
-            //    p.ProveedorId = new IntegerGenerator().Get(1, 6);
-            //    p.Proveedor = null;
-            //    p.ItemNumero = new IntegerGenerator().Get(1, 200);
-            //    p.VentaId = new IntegerGenerator().Get(83022, 93021);
-            //    p.Venta = null;
+            var pedidoFactory = new Faker<Pedido>();
+            var pedidos = pedidoFactory.CreateMany(10000, p =>
+            {
+                p.ProveedorId = new IntegerGenerator().Get(1, 6);
+                p.Proveedor = null;
+                p.ItemNumero = new IntegerGenerator().Get(1, 200);
+                p.VentaId = new IntegerGenerator().Get(2, 501);
+                p.Venta = null;
 
-            //});
+            });
 
-            //using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
-            //{
-            //    uw.PedidoRepositoy.AddRange(pedidos);
-            //   uw.Complete();
-            //}
+            using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
+            {
+                uw.PedidoRepositoy.AddRange(pedidos);
+                uw.Complete();
+            }
 
             //var subPedidoFactory = new Faker<SubPedido>();
             //var subPedidos = subPedidoFactory.CreateMany(10000, sb =>
@@ -74,23 +74,23 @@ namespace TestWhatIDontKno
             //    uw.Complete();
             //}
 
-            var otro = new Faker<Cliente>();
-            var ventas = otro.CreateMany(500, v =>
-            {
-                v.Nombre = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe 1, Bruno Matarazo 2.
-                v.NumeroDocumento = new IntegerGenerator().Get(100000000, 1000000000).ToString();
-                v.Apellidos = new NameGenerator().Get(10);
-                v.Telefono = new IntegerGenerator().Get(100000000, 1000000000).ToString();
-                v.FechaNacimiento = new DateTimeGenerator().Get();
-            });
+            //var otro = new Faker<Cliente>();
+            //var clientes = otro.CreateMany(500, v =>
+            //{
+            //    v.Nombre = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe 1, Bruno Matarazo 2.
+            //    v.NumeroDocumento = new IntegerGenerator().Get(100000000, 1000000000).ToString();
+            //    v.Apellidos = new NameGenerator().Get(10);
+            //    v.Telefono = new IntegerGenerator().Get(100000000, 1000000000).ToString();
+            //    v.FechaNacimiento = new DateTimeGenerator().Get();
+            //});
 
-            using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
-            {
-                // subPedidos.ToList().ForEach(sb => uw.SubPedidoRepository.Add(sb));
-                uw.ClienteRepository.AddRange(ventas);
+            //using (var uw = new UnitOfWork(new ClubNegociosNetworkingContext()))
+            //{
+            //    // subPedidos.ToList().ForEach(sb => uw.SubPedidoRepository.Add(sb));
+            //    uw.ClienteRepository.AddRange(clientes);
 
-                uw.Complete();
-            }
+            //    uw.Complete();
+            //}
         }
 
         static DateTime GetDate()

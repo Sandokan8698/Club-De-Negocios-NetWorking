@@ -26,8 +26,8 @@ namespace WPFPresentation.Pages
 
             _subPedidoReporteViewModel.InitializeViewContent();
 
-            FilterControlSubPedido.FilterControlViewModel.MensageToSendWhenApplay = ViewModelMessages.ApplayFilterInSubPedidoRepor;
-            FilterControlSubPedido.FilterControlViewModel.MensageToSendWhenRemove = ViewModelMessages.RemoveFilterInSubPedidoRepor;
+            FilterControlSubPedido.FilterControlViewModel.MensageToSendWhenApplay = ViewModelMessages.ApplayFilterInSubPedidoReport;
+            FilterControlSubPedido.FilterControlViewModel.MensageToSendWhenRemove = ViewModelMessages.RemoveFilterInSubPedidoReport;
 
            
         }

@@ -124,6 +124,7 @@
     <Compile Include="Utils\ServiceFilter\FilterCreator.cs" />
     <Compile Include="Utils\ServiceFilter\FilterCreatorFactory.cs" />
     <Compile Include="Utils\ServiceFilter\FilterEntitie.cs" />
+    <Compile Include="Utils\ServiceFilter\SubPedidoEntryFilterCreator.cs" />
     <Compile Include="Utils\ServiceFilter\SubPedidoFilterCreator.cs" />
     <Compile Include="Utils\ServiceFilter\VentasFilterCreator.cs" />
   </ItemGroup>

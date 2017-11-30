@@ -6,9 +6,8 @@
     public enum FilterBuilderTypes
     {
         VentasFilterCreator,
-        SubPedidoFilterCreator
-
-       
+        SubPedidoFilterCreator,
+        SubPedidoEntryFilterCreator       
     };
 
     public sealed class FilterCreatorFactory
@@ -55,6 +54,10 @@
 
                 case FilterBuilderTypes.SubPedidoFilterCreator:
                     return new SubPedidoFilterCreator(filterEntitie);
+
+                case FilterBuilderTypes.SubPedidoEntryFilterCreator:
+                    return  new SubPedidoEntryFilterCreator(filterEntitie);
+
             }
 
             return null;

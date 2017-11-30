@@ -142,7 +142,7 @@
     <Compile Include="Converters\UrlNavigationConverter.cs" />
     <Compile Include="Converters\VentaNumberConverter.cs" />
     <Compile Include="FlickrImageLoader.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Models\AutoMapperExtension.cs" />
     <Compile Include="Models\BaseModelComponent.cs" />
     <Compile Include="Models\CalculationModel.cs" />
@@ -202,6 +202,9 @@
     </Compile>
     <Compile Include="Pages\ProveedoresPage.xaml.cs">
       <DependentUpon>ProveedoresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubPedidoEntryReportePage.xaml.cs">
+      <DependentUpon>SubPedidoEntryReportePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SubPedidoReportePage.xaml.cs">
       <DependentUpon>SubPedidoReportePage.xaml</DependentUpon>
@@ -266,6 +269,7 @@
     <Compile Include="ViewModels\ProveedoresViewModel.cs" />
     <Compile Include="ViewModels\SubPedidoEditViewModel.cs" />
     <Compile Include="ViewModels\SubPedidoEntryDialogEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPedidoEntryReporteViewModel.cs" />
     <Compile Include="ViewModels\SubPedidoReporteViewModel.cs" />
     <Compile Include="Pages\Content\ViewModels\TrabajadorNewViewModel.cs" />
     <Compile Include="ViewModels\TrabajadorEditDialogViewModel.cs" />
@@ -323,6 +327,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProveedoresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SubPedidoEntryReportePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

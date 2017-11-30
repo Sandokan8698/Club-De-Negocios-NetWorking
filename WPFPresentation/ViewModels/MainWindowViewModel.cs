@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FirstFloor.ModernUI.Presentation;
 using WPFPresentation.Utils;
-using WPFPresentation.ViewModels;
 
-namespace WPFPresentation
+namespace WPFPresentation.ViewModels
 {
     public class MainWindowViewModel: BaseViewModel
     {
@@ -56,6 +51,7 @@ namespace WPFPresentation
 
                 var reportesGroup = new LinkGroup { DisplayName = "reportes " };
                 reportesGroup.Links.Add(new Link { DisplayName = "reportes pedido", Source = new Uri("/Pages/SubPedidoReportePage.xaml", UriKind.Relative) });
+                reportesGroup.Links.Add(new Link { DisplayName = "reportes abono", Source = new Uri("/Pages/SubPedidoEntryReportePage.xaml", UriKind.Relative) });
 
                 this.menuLinkGroups.Add(trabajadoresGroup);
                 this.menuLinkGroups.Add(reportesGroup);

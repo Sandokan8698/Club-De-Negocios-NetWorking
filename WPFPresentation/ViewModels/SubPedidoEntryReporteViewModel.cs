@@ -6,38 +6,29 @@ using System.Text;
 using System.Threading.Tasks;
 using WPFPresentation.Models;
 using WPFPresentation.Models.Provider;
+using WPFPresentation.Pages;
 using WPFPresentation.Utils;
 
 namespace WPFPresentation.ViewModels
 {
-    public class SubPedidoReporteViewModel : BaseViewModel, IPagiAble
+    public class SubPedidoEntryReporteViewModel : BaseViewModel, IPagiAble
     {
+
         #region Propertys
 
-        private ObservableCollection<SubPedidoModel> _subPedidos;
-
+        private ObservableCollection<Object> _subPedidoEntrys;
         private FilterModel _filter;
 
-        public ObservableCollection<SubPedidoModel> SubPedidos
+        public ObservableCollection<Object> SubPedidoEntrys
         {
-            get { return _subPedidos; }
+            get { return _subPedidoEntrys; }
             set
             {
-                if (_subPedidos != value) _subPedidos = value; OnPropertyChanged("SubPedidos");
+                if (_subPedidoEntrys != value) _subPedidoEntrys = value; OnPropertyChanged("SubPedidoEntrys");
             }
         }
 
-        private decimal _precicoProveedor;
-        public decimal PrecioProveedor
-        {
-            get { return _precicoProveedor; }
-            set
-            {
-                if (_precicoProveedor != value) _precicoProveedor = value; OnPropertyChanged("PrecioProveedor");
-            }
-        }
-
-
+        
         private decimal _abono;
         public decimal Abono
         {
@@ -47,17 +38,7 @@ namespace WPFPresentation.ViewModels
                 if (_abono != value) _abono = value; OnPropertyChanged("Abono");
             }
         }
-
-
-        private decimal _deuda;
-        public decimal Deuda
-        {
-            get { return _deuda; }
-            set
-            {
-                if (_deuda != value) _deuda = value; OnPropertyChanged("Deuda");
-            }
-        }
+        
         public IPaginator Paginator { get; set; }
 
 
@@ -65,17 +46,17 @@ namespace WPFPresentation.ViewModels
 
 
         #region Ctor
-        public SubPedidoReporteViewModel(FacadeProvider facadeProvider) : base(facadeProvider)
+        public SubPedidoEntryReporteViewModel(FacadeProvider facadeProvider) : base(facadeProvider)
         {
             //Registramos un oyente para escuchar por el filter apply
-            Messenger.Instance.Register(ApplyFilter, ViewModelMessages.ApplayFilterInSubPedidoReport);
+            Messenger.Instance.Register(ApplyFilter, ViewModelMessages.ApplayFilterInSubPedidoEntryReport);
 
             //Registramos un oyente parar escuchar para remover el filtro
-            Messenger.Instance.Register(RemoveFilter, ViewModelMessages.RemoveFilterInSubPedidoReport);
+            Messenger.Instance.Register(RemoveFilter, ViewModelMessages.RemoveFilterInSubPedidoEntryReport);
 
             _filter = new FilterModel();
 
-            
+
         }
 
 
@@ -88,11 +69,11 @@ namespace WPFPresentation.ViewModels
 
             if (Paginator != null)
             {
-                SubPedidos = await Task.Run(() =>
+                SubPedidoEntrys = await Task.Run(() =>
                 {
-                    var subpedido =  FacadeProvider.SubPedidoProvider().PaginateFiltered(Paginator.ActualPage, Paginator.ItemsPerPage, _filter);
+                    var subpedidoEntry = FacadeProvider.SubPedidoEntryProvider().PaginateFiltered(Paginator.ActualPage, Paginator.ItemsPerPage, _filter);
 
-                    return subpedido;
+                    return subpedidoEntry;
                 });
 
                 await Task.Run(() =>
@@ -102,17 +83,14 @@ namespace WPFPresentation.ViewModels
 
                 await Task.Run(() =>
                 {
-                   var results =  FacadeProvider.SubPedidoProvider().ApplayFilter(_filter);
-
-                    PrecioProveedor = 0;
+                    var results = FacadeProvider.SubPedidoEntryProvider().ApplayFilter(_filter);
+                  
                     Abono = 0;
-                    Deuda = 0;
+                   
 
                     foreach (var subPedidoModel in results)
-                    {
-                        PrecioProveedor += subPedidoModel.PrecioProveedor;
-                        Abono += subPedidoModel.Abono;
-                        Deuda += subPedidoModel.Deuda;
+                    {                 
+                        Abono += subPedidoModel.Abono;                  
                     }
 
 
@@ -131,7 +109,7 @@ namespace WPFPresentation.ViewModels
                 Paginator.ResetData();
                 InitializeViewContent();
             }
-            
+
         }
 
         private void RemoveFilter(object param)
@@ -141,29 +119,37 @@ namespace WPFPresentation.ViewModels
             InitializeViewContent();
         }
 
-        public int  GetTotalItems()
-        {        
-             return FacadeProvider.SubPedidoProvider().ApplayFilter(_filter).Count();
+        public int GetTotalItems()
+        {
+            return FacadeProvider.SubPedidoEntryProvider().ApplayFilter(_filter).Count();
         }
 
         public async void Paginate(int page, int pageSize)
         {
             IsLoading = true;
 
-            SubPedidos = await Task.Run(() =>
+            SubPedidoEntrys = await Task.Run(() =>
             {
-                return FacadeProvider.SubPedidoProvider().PaginateFiltered(Paginator.ActualPage, Paginator.ItemsPerPage, _filter);
-            });      
+                return FacadeProvider.SubPedidoEntryProvider().PaginateFiltered(Paginator.ActualPage, Paginator.ItemsPerPage, _filter);
+            });
 
-           IsLoading = false;
+            IsLoading = false;
         }
 
         public void SetPaginator(IPaginator paginator)
         {
             Paginator = paginator;
         }
-    }
-        #endregion
 
-    
+        public void ShowVentaDialog(int ventaId)
+        {
+            var venta = FacadeProvider.VentaProvider().Get(ventaId);
+            VentaDetailDialogPage ventaDetailViewModel = new VentaDetailDialogPage(venta);
+            ventaDetailViewModel.ShowDialog();
+        }
+    }
+    #endregion
+
+
 }
+

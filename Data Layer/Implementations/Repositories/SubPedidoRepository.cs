@@ -33,6 +33,7 @@ namespace Data_Layer.Implementations.Repositories
         {
             try
             {
+              
                 var filterCreator = FilterCreatorFactory.Instance.Create(FilterBuilderTypes.SubPedidoFilterCreator, filterEntitie);
                 var filterQuerys = filterCreator.CreateFilterQuerys();
                 return CnnContext.SubPedidoDbSet

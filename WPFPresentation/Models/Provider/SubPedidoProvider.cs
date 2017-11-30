@@ -17,9 +17,7 @@ namespace WPFPresentation.Models.Provider
         public SubPedidoProvider(UnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.SubPedidoRepository)
         {
         }
-
-
-
+        
         public ObservableCollection<SubPedidoModel> ApplayFilter(FilterModel filterEntitie)
         {
             using (UnitOfWork)
