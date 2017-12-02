@@ -36,7 +36,10 @@ namespace Data_Layer.Implementations.Repositories
               
                 var filterCreator = FilterCreatorFactory.Instance.Create(FilterBuilderTypes.SubPedidoFilterCreator, filterEntitie);
                 var filterQuerys = filterCreator.CreateFilterQuerys();
-                return CnnContext.SubPedidoDbSet.ApplySearchCriteria(filterQuerys).ToList();
+                return CnnContext.SubPedidoDbSet
+                    .Include(sb => sb.SubPedidosEntrys)
+                    .ApplySearchCriteria(filterQuerys)
+                    .ToList();
             }
             catch (Exception e)
             {

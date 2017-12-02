@@ -6,8 +6,7 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
              mc:Ignorable="d" 
-            d:DesignHeight="300" d:DesignWidth="300">
-
+            d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
         <Grid Margin="0,0,0,0">
             <Grid.RowDefinitions>
@@ -119,7 +118,7 @@
             </Border>
 
             <!-- Carro de Ventas -->
-            <DataGrid x:Name="DgPedidos" Grid.Row="4" MaxHeight="250" ItemsSource="{Binding Venta.Pedidos, Mode=OneWay,NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
+            <DataGrid x:Name="DgPedidos" Grid.Row="4" MaxHeight="300" ItemsSource="{Binding Venta.Pedidos, Mode=OneWay,NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
                       AutoGenerateColumns="False" Margin="0,16,0,0" SelectionUnit="Cell"  CanUserAddRows="False">
                 <DataGrid.Columns>
                     <mui:DataGridTextColumn Header="Item#"   Binding="{Binding Path=ItemNumero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
