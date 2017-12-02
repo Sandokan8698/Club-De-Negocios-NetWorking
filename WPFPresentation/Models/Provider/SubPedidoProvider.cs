@@ -29,13 +29,13 @@ namespace WPFPresentation.Models.Provider
             
         }
 
-        public ObservableCollection<SubPedidoModel> PaginateFiltered(int page, int pageSize, FilterModel filterEntitie)
+        public ObservableCollection<Object> PaginateFiltered(int page, int pageSize, FilterModel filterEntitie)
         {
             using (UnitOfWork)
             {
                 var filter = Mapper.Map<FilterModel, FilterEntitie>(filterEntitie);
                 var subPedidos = UnitOfWork.SubPedidoRepository.PaginateFiltered(page, pageSize, filter);
-                return Mapper.Map<IEnumerable<SubPedido>, ObservableCollection<SubPedidoModel>>(subPedidos);
+                return Mapper.Map<IEnumerable<Object>, ObservableCollection<Object>>(subPedidos);
             }
             
         }

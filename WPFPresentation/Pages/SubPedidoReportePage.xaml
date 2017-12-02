@@ -73,7 +73,7 @@
                             </mui:DataGridTextColumn.ElementStyle>
                         </mui:DataGridTextColumn>
 
-                        <mui:DataGridTextColumn Header="Cliente" Width="*" IsReadOnly="True" Binding="{Binding Path=Pedido.Venta.Cliente.Nombre, Mode=OneWay, StringFormat=d}">
+                        <mui:DataGridTextColumn Header="Cliente" Width="*" IsReadOnly="True" Binding="{Binding Path=ClienteNombre, Mode=OneWay, StringFormat=d}">
                             <mui:DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -83,11 +83,11 @@
                         <DataGridTemplateColumn Header="Venta" x:Name="Delete">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Style="{StaticResource HyperlinkLikeButton}" Content="{Binding Path=Pedido.VentaId, Mode=OneWay,Converter={StaticResource VentaNumberConverter}}" Click="ButtonBase_OnClick" />
+                                    <Button Style="{StaticResource HyperlinkLikeButton}" Content="{Binding Path=VentaId, Mode=OneWay,Converter={StaticResource VentaNumberConverter}}" Click="ButtonBase_OnClick" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <mui:DataGridTextColumn Header="Empresa" Width="100" IsReadOnly="True"  Binding="{Binding Path=Pedido.Proveedor.Nombre, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                        <mui:DataGridTextColumn Header="Empresa" Width="100" IsReadOnly="True"  Binding="{Binding Path=ProveedorNombre, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
                             <mui:DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -96,21 +96,21 @@
                             </mui:DataGridTextColumn.ElementStyle>
 
                         </mui:DataGridTextColumn>
-                        <mui:DataGridTextColumn Header="Pedido.ID" Width="*" IsReadOnly="True" Binding="{Binding Path=Identificador, Mode=TwoWay}">
+                        <mui:DataGridTextColumn Header="Pedido.ID" Width="*" IsReadOnly="True" Binding="{Binding Path=Identificador, Mode=OneWay}">
                             <mui:DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextAlignment" Value="Center"></Setter>
                                 </Style>
                             </mui:DataGridTextColumn.ElementStyle>
                         </mui:DataGridTextColumn>
-                        <mui:DataGridTextColumn Header="Precio. P" Width="100" IsReadOnly="True"  Binding="{Binding Path=PrecioProveedor, Mode=TwoWay, StringFormat='$#,##0.00;$(#,##0.00)'}">
+                        <mui:DataGridTextColumn Header="Precio. P" Width="100" IsReadOnly="True"  Binding="{Binding Path=PrecioProveedor, Mode=OneWay, StringFormat='$#,##0.00;$(#,##0.00)'}">
                             <mui:DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextAlignment" Value="Center"></Setter>
                                 </Style>
                             </mui:DataGridTextColumn.ElementStyle>
                         </mui:DataGridTextColumn>
-                        <mui:DataGridTextColumn Header="Abono"  Width="100" IsReadOnly="True" Binding="{Binding Path=Abono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='$#,##0.00;$(#,##0.00)'}" >
+                        <mui:DataGridTextColumn Header="Abono"  Width="100" IsReadOnly="True" Binding="{Binding Path=Abono, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat='$#,##0.00;$(#,##0.00)'}" >
                             <mui:DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextAlignment" Value="Center"></Setter>

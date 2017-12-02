@@ -7,7 +7,7 @@
                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
                   mc:Ignorable="d" 
                   d:DesignHeight="300" d:DesignWidth="300"
-                  MinHeight="700" MinWidth="830"
+                  MinHeight="700" MinWidth="950"
                   Title="DETALLES DE VENTAS">
     <Grid x:Name="GdContainer">
 

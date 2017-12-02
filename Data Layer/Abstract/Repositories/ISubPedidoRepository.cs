@@ -12,7 +12,7 @@ namespace Data_Layer.Abstract.Repositories
     {
         IEnumerable<SubPedido> ApplayFilter(FilterEntitie filterEntitie);
 
-        IEnumerable<SubPedido> PaginateFiltered(int page, int pageSize, FilterEntitie filterEntitie);
+        IEnumerable<Object> PaginateFiltered(int page, int pageSize, FilterEntitie filterEntitie);
 
 
     }

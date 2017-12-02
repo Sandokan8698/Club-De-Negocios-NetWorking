@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WPFPresentation.Models;
 using WPFPresentation.Models.Provider;
+using WPFPresentation.Pages;
 using WPFPresentation.Utils;
 
 namespace WPFPresentation.ViewModels
@@ -14,11 +15,11 @@ namespace WPFPresentation.ViewModels
     {
         #region Propertys
 
-        private ObservableCollection<SubPedidoModel> _subPedidos;
+        private ObservableCollection<Object> _subPedidos;
 
         private FilterModel _filter;
 
-        public ObservableCollection<SubPedidoModel> SubPedidos
+        public ObservableCollection<Object> SubPedidos
         {
             get { return _subPedidos; }
             set
@@ -161,6 +162,13 @@ namespace WPFPresentation.ViewModels
         public void SetPaginator(IPaginator paginator)
         {
             Paginator = paginator;
+        }
+
+        public void ShowVentaDialog(int ventaId)
+        {
+            var venta = FacadeProvider.VentaProvider().Get(ventaId);
+            VentaDetailDialogPage ventaDetailViewModel = new VentaDetailDialogPage(venta);
+            ventaDetailViewModel.ShowDialog();
         }
     }
         #endregion

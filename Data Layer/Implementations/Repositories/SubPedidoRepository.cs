@@ -36,12 +36,7 @@ namespace Data_Layer.Implementations.Repositories
               
                 var filterCreator = FilterCreatorFactory.Instance.Create(FilterBuilderTypes.SubPedidoFilterCreator, filterEntitie);
                 var filterQuerys = filterCreator.CreateFilterQuerys();
-                return CnnContext.SubPedidoDbSet
-                    .Include(sb => sb.Pedido.Venta.Cliente)
-                    .Include(sb => sb.Pedido.Venta.Trabajador)
-                    .Include(sb => sb.Pedido.Proveedor)
-                    .Include(sb => sb.SubPedidosEntrys)
-                    .ApplySearchCriteria(filterQuerys).ToList();
+                return CnnContext.SubPedidoDbSet.ApplySearchCriteria(filterQuerys).ToList();
             }
             catch (Exception e)
             {
@@ -50,12 +45,14 @@ namespace Data_Layer.Implementations.Repositories
            
         }
 
-        public IEnumerable<SubPedido> PaginateFiltered(int page, int pageSize, FilterEntitie filterEntitie)
+        public IEnumerable<Object> PaginateFiltered(int page, int pageSize, FilterEntitie filterEntitie)
         {
             try
             {
                 var filterCreator = FilterCreatorFactory.Instance.Create(FilterBuilderTypes.SubPedidoFilterCreator, filterEntitie);
                 var filterQuerys = filterCreator.CreateFilterQuerys();
+
+              
                 return CnnContext.SubPedidoDbSet
                     .Include(sb => sb.Pedido.Venta)
                     .Include(sb => sb.Pedido.Venta.Cliente)
@@ -66,7 +63,20 @@ namespace Data_Layer.Implementations.Repositories
                     .ApplySearchCriteria(filterQuerys)
                     .Skip(page)
                     .Take(pageSize)
-                    .ToList();
+                    .Select(sb => new {
+
+                        FechaCreacion = sb.FechaCreacion,
+                        ClienteNombre = sb.Pedido.Venta.Cliente.Nombre,
+                        VentaId = sb.Pedido.VentaId,
+                        ProveedorNombre = sb.Pedido.Proveedor.Nombre,
+                        Identificador = sb.Identificador,
+                        PrecioProveedor = sb.PrecioProveedor,
+                        Abono = sb.SubPedidosEntrys.Sum(sbe => sbe.Abono),
+                        Deuda = sb.PrecioProveedor - sb.SubPedidosEntrys.Sum(sbe => sbe.Abono)
+                    });
+
+
+                    
             }
             catch (Exception e)
             {

@@ -35,9 +35,10 @@ namespace WPFPresentation.Pages
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-           var item = (SubPedidoModel)DgSubPedidos.SelectedCells[0].Item;
-           VentaDetailDialogPage ventaDetailViewModel = new VentaDetailDialogPage(item.Pedido.Venta);
-            ventaDetailViewModel.ShowDialog();
+            var item = DgSubPedidos.SelectedCells[0].Item;
+
+            object v = item?.GetType().GetProperty("VentaId")?.GetValue(item, null);
+            _subPedidoReporteViewModel.ShowVentaDialog((int)v);
         }
     }
 }
