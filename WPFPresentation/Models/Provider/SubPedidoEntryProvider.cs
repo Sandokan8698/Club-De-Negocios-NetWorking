@@ -15,8 +15,13 @@ namespace WPFPresentation.Models.Provider
 {
     public class SubPedidoEntryProvider : BaseProvider<SubPedidoEntryModel, SubPedidoEntry>
     {
-        public SubPedidoEntryProvider(UnitOfWork unitOfWork) : base(unitOfWork,unitOfWork.SubPedidoEntryRepository)
+        public SubPedidoEntryProvider(UnitOfWork unitOfWork) : base(unitOfWork)
         {
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.SubPedidoEntryRepository;
         }
 
         public ObservableCollection<SubPedidoEntryModel> GetDailyReportPayment(VentaModel venta)

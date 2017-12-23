@@ -142,6 +142,13 @@
     <Compile Include="Converters\UrlNavigationConverter.cs" />
     <Compile Include="Converters\VentaNumberConverter.cs" />
     <Compile Include="FlickrImageLoader.cs" />
+    <Compile Include="Models\AnticipoModel.cs" />
+    <Compile Include="Models\Provider\AnticipoProvider.cs" />
+    <Compile Include="Models\Provider\IFacadeProvider.cs" />
+    <Compile Include="Pages\AnticipoAddPage.xaml.cs">
+      <DependentUpon>AnticipoAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AnticipoAddViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Models\AutoMapperExtension.cs" />
     <Compile Include="Models\BaseModelComponent.cs" />
@@ -215,9 +222,6 @@
     <Compile Include="Pages\SubPedidoEntryDialogEditPage.xaml.cs">
       <DependentUpon>SubPedidoEntryDialogEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TestBackGroundWorkerPage.xaml.cs">
-      <DependentUpon>TestBackGroundWorkerPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Content\TrabajadorNewPage.xaml.cs">
       <DependentUpon>TrabajadorNewPage.xaml</DependentUpon>
     </Compile>
@@ -286,6 +290,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AnticipoAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ClienteEditDialogPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -343,10 +351,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SubPedidoEntryDialogEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\TestBackGroundWorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using AutoMapper;
 using Data_Layer.Implementations;
+using Data_Layer.Abstract;
 using Data_Layer.Utils.ServiceFilter;
 using Domain_Layer.Entities;
 
@@ -11,11 +12,14 @@ namespace WPFPresentation.Models.Provider
     public class ClienteProvider : BaseProvider<ClienteModel, Cliente>
     {
 
-        public ClienteProvider(UnitOfWork unitOfWork):base(unitOfWork,unitOfWork.ClienteRepository)
+        public ClienteProvider(IUnitOfWork unitOfWork):base(unitOfWork)
         {
 
         }
-
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.ClienteRepository;
+        }
 
         public ClienteModel GetClienteByDocumento(string documento)
         {

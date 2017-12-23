@@ -62,7 +62,7 @@ namespace WPFPresentation.ViewModels
 
         #region Ctor
 
-        public ClientesViewModel(FacadeProvider facadeProvider) : base(facadeProvider)
+        public ClientesViewModel(IFacadeProvider facadeProvider) : base(facadeProvider)
         {
             ShowEditClienteDialogComand = new ShowEditClienteDialogCommand(this);
             Messenger.Instance.Register(o => AddCliente(o), ViewModelMessages.AddNewCliente);

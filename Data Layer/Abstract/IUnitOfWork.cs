@@ -14,6 +14,7 @@ namespace Data_Layer.Abstract
         ISubPedidoEntryRepository SubPedidoEntryRepository { get; }
         ISubPedidoRepository SubPedidoRepository { get;  }
         ITrabajadorRepository TrabajadorRepository { get;  }
+        IAnticipoRepository AnticipoRepository { get; }
         int Complete();
     }
 }

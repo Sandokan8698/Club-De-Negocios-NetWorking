@@ -7,9 +7,14 @@ namespace WPFPresentation.Models.Provider
 {
     public class TrabajadorProvider : BaseProvider<TrabajadorModel, Trabajador>
     {
-        public TrabajadorProvider(UnitOfWork unitOfWork) : base(unitOfWork,unitOfWork.TrabajadorRepository)
+        public TrabajadorProvider(UnitOfWork unitOfWork) : base(unitOfWork)
         {
 
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.TrabajadorRepository;
         }
 
         public TrabajadorModel Auhtenticate(string username, string password)

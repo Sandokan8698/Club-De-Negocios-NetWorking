@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IUnitOfWork.cs" />
+    <Compile Include="Abstract\Repositories\IAnticipoRepository.cs" />
     <Compile Include="Abstract\Repositories\ICampanllaRepository.cs" />
     <Compile Include="Abstract\Repositories\IClienteRepository.cs" />
     <Compile Include="Abstract\Repositories\IPedidoRepositoy.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Abstract\Repositories\ISubPedidoRepository.cs" />
     <Compile Include="Abstract\Repositories\ITrabajadorRepository.cs" />
     <Compile Include="Abstract\Repositories\IVentaRepository.cs" />
+    <Compile Include="Implementations\Repositories\AnticipoRepository.cs" />
     <Compile Include="Implementations\Repositories\CampanllaRepository.cs" />
     <Compile Include="Implementations\Repositories\ClienteRepository.cs" />
     <Compile Include="Implementations\Repositories\DomainContextRepository.cs" />
@@ -109,6 +111,10 @@
     <Compile Include="Migrations\201711101946575_UpdateNumeroCuentaProveedor.cs" />
     <Compile Include="Migrations\201711101946575_UpdateNumeroCuentaProveedor.Designer.cs">
       <DependentUpon>201711101946575_UpdateNumeroCuentaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712180233443_AddAnticipo.cs" />
+    <Compile Include="Migrations\201712180233443_AddAnticipo.Designer.cs">
+      <DependentUpon>201712180233443_AddAnticipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101946575_UpdateNumeroCuentaProveedor.resx">
       <DependentUpon>201711101946575_UpdateNumeroCuentaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712180233443_AddAnticipo.resx">
+      <DependentUpon>201712180233443_AddAnticipo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

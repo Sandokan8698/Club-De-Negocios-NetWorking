@@ -29,7 +29,8 @@ namespace Data_Layer
         public DbSet<Pedido> PedidoDbSet { get; set; }
         public DbSet<SubPedido> SubPedidoDbSet { get; set; }
         public DbSet<SubPedidoEntry> SubPedidoEntriesDbSet { get; set; }
-        
+        public DbSet<Anticipo> AnticipoDbSet { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

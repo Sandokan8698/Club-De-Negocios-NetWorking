@@ -12,8 +12,13 @@ namespace WPFPresentation.Models.Provider
 {
     public class CampanllaProvider : BaseProvider<CampanllaModel, Campanlla>
     {
-        public CampanllaProvider(UnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.CampanllaRepository)
+        public CampanllaProvider(UnitOfWork unitOfWork) : base(unitOfWork)
         {
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.CampanllaRepository;
         }
     }
 }

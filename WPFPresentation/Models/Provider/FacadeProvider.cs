@@ -4,7 +4,7 @@ using Data_Layer.Implementations;
 
 namespace WPFPresentation.Models.Provider
 {
-    public class FacadeProvider
+    public class FacadeProvider : IFacadeProvider
     {
         private ClienteProvider _clienteProvider;
         private PedidoProvider _pedidoProvider;
@@ -15,26 +15,9 @@ namespace WPFPresentation.Models.Provider
         private SubPedidoEntryProvider _subPedidoEntryProvider;
         private TrabajadorProvider _trabajadorProvider;
 
-       
-        public FacadeProvider()
-        {
-            //_clienteProvider = new ClienteProvider(facadeService);
-            //_pedidoProvider = new PedidoProvider(facadeService);
-            //_proveedorProvider = new ProveedorProvider(facadeService);
-            //_ventaProvider = new VentaProvider(facadeService);
-            //_campanllaProvider = new CampanllaProvider(facadeService);
-            //_subPedidoProvider = new SubPedidoProvider(facadeService);
-            //_subPedidoEntryProvider = new SubPedidoEntryProvider(facadeService);
-            //_trabajadorProvider = new TrabajadorProvider(facadeService);
-
-            //_facadeService = facadeService;
-
-        }
-
-
         public ClienteProvider ClienteProvider()
         {
-            return new ClienteProvider(new Data_Layer.Implementations.UnitOfWork(new ClubNegociosNetworkingContext()));
+            return new ClienteProvider(new UnitOfWork(new ClubNegociosNetworkingContext()));
         }
 
         public PedidoProvider PedidoProvider()

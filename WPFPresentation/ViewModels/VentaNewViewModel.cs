@@ -23,8 +23,7 @@ namespace WPFPresentation.ViewModels
         public CommandModel AddNewVentaComman { get; private set; }
         public CommandModel SaveVentaComand { get; private set; }
 
-        private ObservableCollection<ClienteModel> _clientes;
-
+      
         public ObservableCollection<ClienteModel> Clientes  
         {
             get { return InMemoryHelper.Instance.Clientes; }      

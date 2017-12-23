@@ -15,8 +15,13 @@ namespace WPFPresentation.Models.Provider
     public class ProveedorProvider : BaseProvider<ProveedorModel, Proveedor>
 
     {
-        public ProveedorProvider(UnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.ProveedorRepository)
+        public ProveedorProvider(UnitOfWork unitOfWork) : base(unitOfWork)
         {
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.ProveedorRepository;
         }
     }
 }

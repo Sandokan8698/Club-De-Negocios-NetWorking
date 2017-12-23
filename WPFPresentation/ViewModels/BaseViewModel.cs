@@ -18,9 +18,9 @@ namespace WPFPresentation.ViewModels
         }
 
 
-        protected FacadeProvider FacadeProvider;
+        protected IFacadeProvider FacadeProvider;
 
-        protected BaseViewModel(FacadeProvider facadeProvider)
+        protected BaseViewModel(IFacadeProvider facadeProvider)
         {
             FacadeProvider = facadeProvider;
 

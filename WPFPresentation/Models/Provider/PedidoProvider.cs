@@ -14,9 +14,14 @@ namespace WPFPresentation.Models.Provider
 {
     public class PedidoProvider : BaseProvider<PedidoModel,Pedido>
     {
-        public PedidoProvider(UnitOfWork unitOfWork):base(unitOfWork, unitOfWork.PedidoRepositoy)
+        public PedidoProvider(UnitOfWork unitOfWork):base(unitOfWork)
         {
 
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.PedidoRepositoy;
         }
 
         public override PedidoModel Add(PedidoModel entity)

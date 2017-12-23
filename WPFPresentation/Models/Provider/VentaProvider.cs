@@ -18,9 +18,14 @@ namespace WPFPresentation.Models.Provider
     {
        
 
-        public VentaProvider(UnitOfWork unitOfWork):base(unitOfWork, unitOfWork.VentaRepository)
+        public VentaProvider(UnitOfWork unitOfWork):base(unitOfWork)
         {
            
+        }
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.VentaRepository;
         }
 
         #region Base Method

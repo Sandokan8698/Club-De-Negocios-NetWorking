@@ -14,10 +14,15 @@ namespace WPFPresentation.Models.Provider
 {
     public class SubPedidoProvider : BaseProvider<SubPedidoModel, SubPedido>
     {
-        public SubPedidoProvider(UnitOfWork unitOfWork) : base(unitOfWork, unitOfWork.SubPedidoRepository)
+        public SubPedidoProvider(UnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
-        
+
+        public override void CreateBaseRepository()
+        {
+            _baseRepository = UnitOfWork.SubPedidoRepository;
+        }
+
         public ObservableCollection<SubPedidoModel> ApplayFilter(FilterModel filterEntitie)
         {
             using (UnitOfWork)

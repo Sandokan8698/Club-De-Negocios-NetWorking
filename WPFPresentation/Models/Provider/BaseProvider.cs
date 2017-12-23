@@ -18,13 +18,15 @@ namespace WPFPresentation.Models.Provider
         /// Instancia del Proveeder de Servicio de este provider
         /// </summary>
         protected IUnitOfWork UnitOfWork;
-        private IRepository<TSource> _baseRepository;
+        protected IRepository<TSource> _baseRepository;
 
-        public BaseProvider(UnitOfWork unitOfWork, IRepository<TSource> baseRepository)
+        public BaseProvider(IUnitOfWork unitOfWork)
         {
             UnitOfWork = unitOfWork;
-            _baseRepository = baseRepository;
+            CreateBaseRepository();
         }
+
+        public abstract void CreateBaseRepository();
 
         public virtual TEntity Add(TEntity entity)
         {

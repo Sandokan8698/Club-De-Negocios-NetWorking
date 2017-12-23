@@ -61,6 +61,7 @@
     <Compile Include="BusinessRules\ValidationDataType.cs" />
     <Compile Include="BusinessRules\ValidationOperator.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Anticipo.cs" />
     <Compile Include="Entities\Campanlla.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Pedido.cs" />

@@ -34,10 +34,12 @@ namespace WPFPresentation.ViewModels
 
             var clienteGroup = new LinkGroup { DisplayName = "clientes" };
             clienteGroup.Links.Add(new Link { DisplayName = "clientes", Source = new Uri("/Pages/ClientesPage.xaml", UriKind.Relative) });
+            clienteGroup.Links.Add(new Link { DisplayName = "anticipo", Source = new Uri("/Pages/AnticipoAddPage.xaml", UriKind.Relative) });
 
             var proveedorGroup = new LinkGroup { DisplayName = "empresas" };
             proveedorGroup.Links.Add(new Link { DisplayName = "empresas", Source = new Uri("/Pages/ProveedoresPage.xaml", UriKind.Relative) });
 
+           
 
             this.menuLinkGroups.Add(ventasGroup);
             this.menuLinkGroups.Add(clienteGroup);

@@ -25,6 +25,7 @@ namespace Data_Layer.Implementations
             SubPedidoEntryRepository = new SubpedidoEntryRepository(_context);
             SubPedidoRepository = new SubPedidoRepository(_context);
             TrabajadorRepository = new TrabajadorRepository(_context);
+            AnticipoRepository = new AnticipoRepository(_context);
         }
 
 
@@ -35,8 +36,9 @@ namespace Data_Layer.Implementations
         public IPedidoRepositoy PedidoRepositoy  { get; private set; }
         public ISubPedidoEntryRepository SubPedidoEntryRepository { get; private set; }
         public ISubPedidoRepository SubPedidoRepository { get; private set; }
-
+        public IAnticipoRepository AnticipoRepository { get; private set; }
         public ITrabajadorRepository TrabajadorRepository { get; private set; }
+
 
         public int Complete()
         {
